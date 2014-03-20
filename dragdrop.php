@@ -29,14 +29,6 @@ var addEvent = (function () {
   }
 })();
 
-// Drag information
-function DragObj(element, data) {
-	this.data = data;
-	this.element = element;
-	this.count = 0;
-	element.setAttribute("data-count", 0);
-}
-
 
 // Add event handlers onload 
 addEvent(window, 'load', function() {
@@ -45,6 +37,38 @@ addEvent(window, 'load', function() {
   var draggableText = new DragObj(document.getElementById('text'), "This is text"); 
   var drop          = new DragObj(document.getElementById('drop'), "None");
   var countBtn		= document.getElementById('countBtn');
+  
+// Drag information
+function DragObj(element, data) {
+	this.data = data;
+	this.element = element;
+	this.count = 0;
+	element.setAttribute("data-count", 0);
+	
+	this.dropBall = function (e) {
+	var innerHTML = '<img alt="' + this.alt + '" src="' + this.src + '">';
+	if (e.preventDefault) e.preventDefault();
+
+	if (!drop.count) {
+	  	drop.element.innerHTML = '<div id="start"></div>' + innerHTML;
+	    drop.element.backgroundColor="#ff0000"; 
+		drop.count++;
+	  }
+	  else
+	  {
+		var lastChild;
+		if (lastChild = drop.element.lastElementChild) {
+	  		lastChild.insertAdjacentHTML('afterend', innerHTML);
+		drop.count++;
+		}
+			
+	  }
+	  var count = this.getAttribute('data-count');
+	  this.setAttribute("data-count", ++count);
+  }
+  
+
+}
   
   // Cancel - don't allow this to propagate.
   function cancel(e) {
@@ -63,31 +87,9 @@ addEvent(window, 'load', function() {
 		return false;
   });
   
-  addEvent(draggableBlueBall.element, 'dragend', dropBall);
-  addEvent(draggableRedBall.element, 'dragend', dropBall);
+  addEvent(draggableBlueBall.element, 'dragend', draggableBlueBall.dropBall);
+  addEvent(draggableRedBall.element, 'dragend', draggableRedBall.dropBall);
  
-  function dropBall(e) {
-	  var innerHTML = '<img alt="' + this.alt + '" src="' + this.src + '">';
-	  
-	  if (e.preventDefault) e.preventDefault();
-	  if (!drop.count) {
-	  	drop.element.innerHTML = '<div id="start"></div>' + innerHTML;
-	    drop.element.backgroundColor="#ff0000"; 
-		drop.count++;
-	  }
-	  else
-	  {
-		var lastChild;
-		if (lastChild = drop.element.lastElementChild) {
-	  		lastChild.insertAdjacentHTML('afterend', innerHTML);
-		drop.count++;
-		}
-			
-	  }
-	  var count = this.getAttribute('data-count');
-	  this.setAttribute("data-count", ++count);
-  }
-  
   addEvent(draggableText.element, 'dragend', function (e) {
 	  if (e.preventDefault) e.preventDefault();
 	  drop.element.innerHTML="<strong>Text Dropped!</strong>";
@@ -101,7 +103,7 @@ addEvent(window, 'load', function() {
 
 });
 // -->
-</script>    
+</script>
 <style>
 #drop {
   min-height: 150px;
