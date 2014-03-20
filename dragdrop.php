@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset=utf-8 />
-<title>A Basic Drag &amp; Drop Demo</title>
+<title>Drag &amp; Drop</title>
 <script type="text/javascript">
 <!--
 var addEvent = (function () {
@@ -96,12 +96,12 @@ addEvent(window, 'load', function() {
     addEvent(countBtn, 'click', function (e) {
 	  var redBallCount = draggableRedBall.element.getAttribute('data-count');
 	  var blueBallCount = draggableBlueBall.element.getAttribute('data-count');
-	  document.getElementById('countArea').innerHTML='<strong>Blue Balls: ' + redBallCount + '<br />Red Balls: ' + blueBallCount + '</strong>';
+	  document.getElementById('countArea').innerHTML='<p><strong>Blue Balls: ' + redBallCount + '<br />Red Balls: ' + blueBallCount + '</strong></p>';
   });
 
 });
 // -->
-</script>
+</script>    
 <style>
 #drop {
   min-height: 150px;
@@ -113,13 +113,14 @@ addEvent(window, 'load', function() {
 </style>
 </head>
 <body>
-  <h1 align=center>A Basic Drag &amp; Drop Demo</h1>
+  <h1 align=center>Drag &amp; Drop - Fill the box with balls</h1>
   <a href="http://www.janbthomas.com" id="text" draggable="true">JanBThomas.com 1</a>
   <img id="redball" alt="ball (2K)" src="images/redball.png" height="50" width="50" draggable="true" />
   <img id="blueball" alt="ball (2K)" src="images/blueball.png" height="50" width="50" draggable="true" />
   </div>
   <div id="drop"><div id="start"></div></div>
   <input type="button" id="countBtn" value="Count">
+  <br />
   <div id="countArea"></div>
 </body>
 </html>
