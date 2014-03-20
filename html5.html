@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset=utf-8 />
+<title>HTML5</title>
+<style type="text/css">
+.mainBody {
+	margin-left: auto;
+	margin-right: auto;
+	width: 900px;
+}
+section, header, footer, .mainVideo {
+	display: block;
+}
+
+.contentSection {
+	display: block;
+	clear: both;
+}
+
+.mainContent {
+	display: inline-block;
+	width: 550px;
+}
+
+aside {
+	display: inline-block;
+	width: 250px;
+	font-style: italic;
+	vertical-align:top;
+}
+
+#video {
+	width: 450px;
+	display: inline-block;
+	vertical-align: top;
+}
+#videotext {
+	width: 350px;
+	display: inline-block;
+	vertical-align: top;
+}
+.html5-examples {
+	display: block;
+}
+.logo {
+	float:left;
+}
+nav li {
+	display: inline-block;
+	padding: 10px;
+}
+</style>
+</head>
+<body>
+<header>
+  <h1 align=center>New HTML 5 tags</h1>
+</header>
+<div class="mainBody">
+  <div id="mainVideo">
+  <div id="video">
+  <embed src="video/Artwork.swf" width="400" height="200" wmode="transparent" volume="0" />
+  </div>
+  <div id="videotext">
+  HTML5 allows for mp4, ogg and webm.  With flash use the embed tag.  With YouTube use the iframe.  According to YouTube this will run the HTML5 video player.
+  </div>
+  </div>
+<div class="html5-examples">
+  <header>
+    	<img src="images/janbthomas.png" alt="janbthomas.com web development" class="logo"/>
+        <h1>Jan's HTML5 Website</h1>
+    <nav>
+      <ul>
+        <li><a href="index.php">HOME</a></li>
+        <li><a href="websites.php">WEBSITES</a></li>
+        <li><a href="about.php">ABOUT JAN</a></li>
+        <li><a href="jansblog">BLOG</a></li>
+      </ul>
+    </nav>
+   </header>   
+  
+   <div class="contentSection">
+   <div class="mainContent">
+    <p>Semantic HTML - Want to label your elements according to their function on the page.  Here are some tags:</p>
+    <p>HTML5 header tag used multiple times on a page.  Can include introductory or navigational elements.</p>
+    <p>HTML5 nav tag holds navigational items.  A nav tag can go inside of a header.</p>
+    <p>HTML5 footer tag holds information about the company or person that produced content on the page.</p>
+    <p>HTML5 aside tag is for information that does not directly relate to the main content on the page.</p>
+    <p>HTML5 section tag groups related information together.</p>
+    </div>
+    
+    <aside>
+    <p>View the HTML5 wiki page to see what new and exciting things can be done with HTML5 pages.</p>
+    </aside>
+    </div>
+    <footer>
+    <p id="copywrite">&copy; 2014 JanBThomas Last Updated February 2014. <a href="jansblog/privacy-policy" class="uline">Privacy Policy</a></p>
+    </footer>
+  </div>
+</div>
+</body>
+</html>
